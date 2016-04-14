@@ -10,8 +10,10 @@ app.controller('DataController', function($scope){
 
 app.controller('PostsController', function($scope, username){
 	$scope.posts = []; 
-	$scope.addPost = function(post){
-		$scope.posts.push(post + ' por ' + username.get());
+	$scope.addPost = function(){
+		$scope.posts.push({title: $scope.title, text:$scope.post, author: username.get()});
+        $scope.post = "";
+        $scope.title = "";
 		console.log($scope.posts);
 	}
 });

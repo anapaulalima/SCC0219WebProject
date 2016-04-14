@@ -367,8 +367,8 @@ th {
 }
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url("../fonts/bootstrap/glyphicons-halflings-regular.eot");
-  src: url("../fonts/bootstrap/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/bootstrap/glyphicons-halflings-regular.woff2") format("woff2"), url("../fonts/bootstrap/glyphicons-halflings-regular.woff") format("woff"), url("../fonts/bootstrap/glyphicons-halflings-regular.ttf") format("truetype"), url("../fonts/bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg");
+  src: url("../bootstrap-sass-3.3.6/bootstrap-sass-3.3.6/assets/fonts/bootstrap/glyphicons-halflings-regular.eot");
+  src: url("../bootstrap-sass-3.3.6/bootstrap-sass-3.3.6/assets/fonts/bootstrap/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("../bootstrap-sass-3.3.6/bootstrap-sass-3.3.6/assets/fonts/bootstrap/glyphicons-halflings-regular.woff2") format("woff2"), url("../bootstrap-sass-3.3.6/bootstrap-sass-3.3.6/assets/fonts/bootstrap/glyphicons-halflings-regular.woff") format("woff"), url("../bootstrap-sass-3.3.6/bootstrap-sass-3.3.6/assets/fonts/bootstrap/glyphicons-halflings-regular.ttf") format("truetype"), url("../bootstrap-sass-3.3.6/bootstrap-sass-3.3.6/assets/fonts/bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg");
 }
 /* line 24, ../bootstrap-sass-3.3.6/bootstrap-sass-3.3.6/assets/stylesheets/bootstrap/_glyphicons.scss */
 .glyphicon {
@@ -8790,4 +8790,45 @@ button.close {
   .hidden-print {
     display: none !important;
   }
+}
+/* line 878, ../sass/app.scss */
+.footer {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  margin-top: 100px;
+  color: #99979c;
+  text-align: center;
+  background-color: #2a2730;
+}
+@media (min-width: 768px) {
+  /* line 878, ../sass/app.scss */
+  .footer {
+    text-align: left;
+  }
+}
+
+/* line 891, ../sass/app.scss */
+.footer-heart {
+  display: inline-block;
+  height: 1.2em;
+  position: relative;
+  vertical-align: middle;
+  width: 1.3em;
+}
+/* line 898, ../sass/app.scss */
+.footer-heart .glyphicon {
+  left: 0;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
+/* line 905, ../sass/app.scss */
+.footer-heart .onhover {
+  color: color("red", "base");
+  opacity: 0;
+  transition: opacity .5s;
+}
+/* line 911, ../sass/app.scss */
+.footer:hover .footer-heart .onhover {
+  opacity: 1;
 }

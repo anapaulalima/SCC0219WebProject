@@ -80,7 +80,7 @@ $brand-primary:         #A31414 !default; // #337ab7
 
 // // [converter] If $bootstrap-sass-asset-helper if used, provide path relative to the assets load path.
 // // [converter] This is because some asset helpers, such as Sprockets, do not work with file-relative paths.
-// $icon-font-path: if($bootstrap-sass-asset-helper, "bootstrap/", "../fonts/bootstrap/") !default;
+$icon-font-path: "../bootstrap-sass-3.3.6/bootstrap-sass-3.3.6/assets/fonts/bootstrap/";
 
 // //** File name for all font files.
 // $icon-font-name:          "glyphicons-halflings-regular" !default;
@@ -874,3 +874,41 @@ $brand-primary:         #A31414 !default; // #337ab7
 // $hr-border:                   $gray-lighter !default;
 
 @import "../bootstrap-sass-3.3.6/bootstrap-sass-3.3.6/assets/stylesheets/bootstrap";
+
+.footer {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-top: 100px;
+    color: #99979c;
+    text-align: center;
+    background-color: #2a2730;
+    
+    @media (min-width: 768px) {
+        text-align: left;
+    }
+}
+
+.footer-heart {
+  display: inline-block;
+  height: 1.2em;
+  position: relative;
+  vertical-align: middle;
+  width: 1.3em;
+
+  .glyphicon {
+    left: 0;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+  }
+
+  .onhover {
+    color: color('red', 'base');
+    opacity: 0;
+    transition: opacity .5s;
+  }
+
+  .footer:hover & .onhover {
+    opacity: 1;
+  }
+}
