@@ -912,3 +912,13 @@ $icon-font-path: "../bootstrap-sass-3.3.6/bootstrap-sass-3.3.6/assets/fonts/boot
     opacity: 1;
   }
 }
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1 0 auto;
+}

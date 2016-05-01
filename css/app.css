@@ -8832,3 +8832,15 @@ button.close {
 .footer:hover .footer-heart .onhover {
   opacity: 1;
 }
+
+/* line 916, ../sass/app.scss */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* line 922, ../sass/app.scss */
+main {
+  flex: 1 0 auto;
+}

@@ -1,0 +1,45 @@
+<div class= "col-sm-12 col-lg-10">
+    <div class = "row">
+        <div class="col-sm-12 col-lg-12">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h3>Edit User</h3>
+                    <form ng-submit="editUser()">
+                        <div class="form-group" ng-class="{'has-error': formerror.login}">
+                            <label for="login"><h4>Login</h4></label>
+                            <input class="form-control" id="login" placeholder="{{formdata.login}}" ng-model="formdata.login" type="text" required>
+                            <span class="help-block" ng-if="formerror.login">{{formerror.login}}</span>
+                        </div>
+                        <div class="form-group" ng-class="{'has-error': formerror.password}">
+                            <label for="password"><h4>Password</h4></label>
+                            <input class="form-control" id="password" placeholder="{{formdata.password}}" ng-model="formdata.password" type="password" required>
+                            <span class="help-block" ng-if="formerror.password">{{formerror.password}}</span>
+                        </div>
+                        <div class="form-group" ng-class="{'has-error': formerror.name}">
+                            <label for="name"><h4>Name</h4></label>
+                            <input class="form-control" id="name" placeholder="{{formdata.name}}" ng-model="formdata.name" type="text" required>
+                            <span class="help-block" ng-if="formerror.name">{{formerror.name}}</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="photo"><h4>Photo</h4></label>
+                            <input id="photo" ng-model="formdata.photo" type="file" accept="image/*" required>
+                        </div>
+                        
+                        <div class="form-group" ng-class="{'has-error': formerror.bio}">
+                            <label for="bio"><h4>Bio</h4></label>
+                            <textarea class="form-control" id="bio" placeholder="{{formdata.bio}}" ng-model="formdata.bio" type="text" required></textarea> 
+                            <span class="help-block" ng-if="formerror.bio">{{formerror.bio}}</span>
+                        </div>
+                        <div class="form-group" ng-class="{'has-error': formerror.birthday}">
+                            <label for="birthday"><h4>Birthday</h4></label>
+                            <input class="form-control" id="birthday" ng-model="formdata.birthday" placeholder="{{formdata.birthday}}" type="date" required>
+                            <span class="help-block" ng-if="formerror.birthday">{{formerror.birthday}}</span>
+                        </div>
+                        <button type="submit" class="btn btn-success">Edit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

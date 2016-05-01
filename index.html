@@ -3,14 +3,19 @@
 	<head>
 		<meta charset="UTF-8">
 		<title> Correilegante </title>
-		<link rel="stylesheet" type="text/css" href="css/app.css">
-		<script type="text/javascript" src="js/jquery-2.2.1.min.js"></script>
-		<script type="text/javascript" src="bootstrap-sass-3.3.6/bootstrap-sass-3.3.6/assets/javascripts/bootstrap.min.js"></script>
-		<script type="text/javascript" src="js/angular.min.js"></script>
-        <script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
-		<script type="text/javascript" src="js/controllers.js"></script>
-        <script type="text/javascript" src="js/utils.js"></script>
-        <script type="text/javascript" src="js/routes.js"></script>
+		<link rel="stylesheet" type="text/css" href="/css/app.css">
+		<link rel="stylesheet" type="text/css" href="/bower_components/select2/dist/css/select2.min.css">
+		<link rel="stylesheet" type="text/css" href="/bower_components/angular-ui-notification/dist/angular-ui-notification.min.css">
+		<script type="text/javascript" src="/js/jquery-2.2.1.min.js"></script>
+		<script type="text/javascript" src="/bootstrap-sass-3.3.6/bootstrap-sass-3.3.6/assets/javascripts/bootstrap.min.js"></script>
+		<script type="text/javascript" src="/bower_components/select2/dist/js/select2.full.min.js"></script>
+		<script type="text/javascript" src="/bower_components/angular/angular.min.js"></script>
+        <script type="text/javascript" src="/bower_components/angular-route/angular-route.min.js"></script>
+        <script type="text/javascript" src="/bower_components/angular-ui-notification/dist/angular-ui-notification.min.js"></script>
+        <script type="text/javascript" src="/js/utils.js"></script>
+		<script type="text/javascript" src="/js/controllers.js"></script>
+		<script type="text/javascript" src="/js/filter.js"></script>
+        <script type="text/javascript" src="/js/routes.js"></script>
         
         <base href="/">
 	</head>
@@ -53,12 +58,12 @@
 			</div>
 		</nav>
 
-		<div class="container">
+		<main class="container">
             <div class="row page-header">
             </div>
             <!-- Aqui vai a parte que muda em todos as páginas -->
 			<ng-view></ng-view>
-		</div>
+		</main>
 		<footer class="footer">
 			<div class="container">
 				<div class="row">
