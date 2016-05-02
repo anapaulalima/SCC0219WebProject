@@ -142,7 +142,26 @@ app.controller('signUpCtrl', function($scope, $location, Notification){
     }
 });
 
+app.controller('timelineCtrl', function($scope, $location, Notification){
+    
+});
+
+app.controller('changeDBCtrl', function($scope, $location, Notification){
+    $scope.downloadFile = function(){
+    }
+    $scope.uploadFile = function(){
+    }
+});
+
 app.controller('editUserCtrl', function($scope, $location, Notification){
+    //backend pega os dados do usuário atual
+    $scope.formdata = {
+        'login' : 'aniinharl',
+        'password' : '123456',
+        'name' : 'Ana Paula dos Reis Lima',
+        'bio' : 'Sou legal mesmo',
+        'birthday' : new Date(1995, 09, 21, 0, 0, 0, 0)
+    }
     $scope.editUser = function(){
         $scope.formerror = {};
         //backend faz as verificações de todos os campos
@@ -153,6 +172,11 @@ app.controller('editUserCtrl', function($scope, $location, Notification){
         //retorna os erros que derem
         /* se der certo, $location.path("/login/");
         Notification.success("User registered!");*/
+    }
+        
+    $scope.deleteUser = function(){
+        Notification.success("User deleted!");
+        $location.path('/login/');
     }
 });
 
@@ -169,6 +193,28 @@ app.controller('newGroupCtrl', function($scope, $location, Notification){
     $('#users').select2();
 });
 
+app.controller('openGroupCtrl', function($scope, $location, Notification){
+    //backend pega os nomes de todos os usuários
+    $scope.allUsers = [
+        {id: 1, login: 'ana'},
+        {id: 2, login: 'ana1'},
+        {id: 3, login: 'ana2'},
+        {id: 4, login: 'ana3'},
+    ]
+    //backend pega o nome do grupo a ser editado e os usuários
+    $scope.formdata = {
+        'name' : 'USP'
+    };
+    $scope.editGroup = function(){
+        
+    }
+    $scope.deleteGroup = function(){
+        Notification.success("Group deleted!");
+        $location.path('/perfil/');
+    }
+    $('#users').select2();
+
+});
 /*app.config(function($routeProvider, $locationProvider){
 	$routeProvider
 		.when('/Text/:pagina',{

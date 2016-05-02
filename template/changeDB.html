@@ -1,0 +1,21 @@
+<div class= "col-sm-12 col-lg-10">
+    <div class = "row">
+        <div class="col-sm-12 col-lg-12">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h3>Upload/Download DB File</h3>
+                    <form>
+                        
+                        <div class="form-group">
+                            <label for="photo"><h4>File</h4></label>
+                            <input id="photo" ng-model="formdata.file" type="file" required>
+                        </div>
+                        
+                        <button type="submit" ng-click="uploadFile()" class="btn btn-info">Upload</button>
+                        <button type="submit" ng-click="downloadFile()" class="btn btn-info">Download</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

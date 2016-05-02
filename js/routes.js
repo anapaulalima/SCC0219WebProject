@@ -37,6 +37,18 @@ angular.module('correileganteApp')
             templateUrl: 'template/newGroup.html',
             controller: 'newGroupCtrl'
         })
+        .when('/openGroup/', {
+            templateUrl: 'template/openGroup.html',
+            controller: 'openGroupCtrl'
+        })
+        .when('/timeline/', {
+            templateUrl: 'template/timeline.html',
+            controller: 'timelineCtrl'
+        })
+        .when('/changeDB/', {
+            templateUrl: 'template/changeDB.html',
+            controller: 'changeDBCtrl'
+        })
         .otherwise({
             redirectTo: '/'
         });
