@@ -1,0 +1,62 @@
+{
+	"users": [
+		{
+			"id": 1,
+			"nome": "John Doe",
+			"login": "johndoe",
+			"password": "senha em md5",
+			"birthday": "mm-dd-yyy",
+			"bio": "bio do John Doe"
+		},
+		{
+			"id": 2,
+			"nome": "Jane Doe",
+			"login": "janedoe",
+			"password": "senha2 em md5",
+			"birthday": "mm-dd-yyy",
+			"bio": "bio da Jane Doe"
+		}
+	],
+	"follow": [
+		{
+			"id": 1,
+			"follows": [2,3,4]
+		}
+	],
+	"group": [
+		{
+			"id": 1,
+			"list": [
+				{
+					"nome": "group1",
+					"users": [2,3,4],
+					"relativeId": 1
+				}
+			]
+		}
+	],
+	"tweets": [
+		{
+			"id": 7345,
+			"user": 1,
+			"title": "Titulo desse tweet",
+			"text": "Texto desse tweet",
+			"timestamp": "2016-05-10 10:23:45 TZ=-3"
+		}
+	],
+	"reactions": [
+		{
+			"tweet": 7345,
+			"user": 1,
+			"reaction": -1
+		}
+	],
+	"share": [
+		{
+			"id": 7345,
+			"tweet": 7345,
+			"user": 1,
+			"timestamp": "2016-05-10 10:25:45 TZ=-3"
+		}
+	]
+}
