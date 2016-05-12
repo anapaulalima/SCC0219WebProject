@@ -48,7 +48,7 @@
 		{
 			"tweet": 7345,
 			"user": 1,
-			"reaction": -1
+			"reaction": 1
 		}
 	],
 	"share": [
@@ -60,3 +60,10 @@
 		}
 	]
 }
+
+
+/*comentários:
+	- timestamp deve pegar o horário atual do local e colocar o time zone
+	- text dos tweets deve ser da forma como foi digitado, sem nenhum pre-pocessamento
+	- reaction seria 1 para like e 0 para dislike
+*/
