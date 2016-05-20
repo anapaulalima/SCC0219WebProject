@@ -49,6 +49,14 @@ angular.module('correileganteApp')
             templateUrl: 'template/changeDB.html',
             controller: 'changeDBCtrl'
         })
+        .when('/searchResult/', {
+            templateUrl: 'template/searchResult.html',
+            controller: 'searchCtrl'
+        })
+        .when('/report/', {
+            templateUrl: 'template/report.html',
+            controller: 'reportCtrl'
+        })
         .otherwise({
             redirectTo: '/'
         });

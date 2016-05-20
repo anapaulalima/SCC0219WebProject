@@ -16,7 +16,7 @@ app.config(function(NotificationProvider){
    }); 
 });
 
-app.controller('MenuController', function($scope){
+app.controller('menuCtrl', function($scope){
 
 });
 
@@ -33,14 +33,26 @@ app.controller('loginCtrl', function($scope, $location){
     }
 });
 
-app.controller('DataController', function($scope){
+app.controller('dataCtrl', function($scope){
 	
 });
 
-app.controller('PostsController', function($scope, $routeParams){
+app.controller('reportCtrl', function($scope){
+    
+});
+
+app.controller('searchCtrl', function($scope){
+    $scope.users = [];
+    $scope.users.push({username: "aniinharl", bio: "oioioi"});
+    $scope.users.push({username: "giovanemocellin", bio: "olar"});
+    $scope.users.push({username: "antonioplm", bio: "nenhuma descricao"});
+});
+
+
+app.controller('postsCtrl', function($scope, $routeParams){
 	$scope.posts = []; 
 	$scope.addPost = function(){
-		$scope.posts.push({title: $scope.title, text:$scope.post, author: username.get(), postDate:parseDate()});
+		$scope.posts.push({title: $scope.title, text:$scope.post, author: "ana", postDate:parseDate()});
         $scope.post = "";
         $scope.title = "";
 		console.log($scope.posts);
@@ -160,7 +172,7 @@ app.controller('editUserCtrl', function($scope, $location, Notification){
         'password' : '123456',
         'name' : 'Ana Paula dos Reis Lima',
         'bio' : 'Sou legal mesmo',
-        'birthday' : new Date(1995, 09, 21, 0, 0, 0, 0)
+        'birthday' : '21-10-1995'
     }
     $scope.editUser = function(){
         $scope.formerror = {};
