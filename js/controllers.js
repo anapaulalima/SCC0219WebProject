@@ -1,7 +1,9 @@
 var app = angular.module('correileganteApp', [
     'ngRoute',
     'correilegante-parser',
-    'ui-notification'
+    'ui-notification',
+    'ui.select',
+    'ngCookies'
 ]);
 
 app.config(function(NotificationProvider){
@@ -24,24 +26,56 @@ app.controller('indexCtrl', function($scope){
 
 });
 
-app.controller('loginCtrl', function($scope, $location){
+app.controller('loginCtrl', function($scope, $location, Notification, Auth){
     $scope.onSubmit = function(){
-        var username = $scope.username;
-        var password = $scope.password;
-        alert("username: " + username + "\nPassword: " + password);
-        $location.path('/timeline/');
-    }
-});
+        var formdata = {
+            username : $scope.username,
+            password : $scope.password
+        };
+        Auth.login(formdata).success(function(data){
+            Notification.success("Login successfully!");
+            $location.path('/timeline/');
+        }).catch(function(data){
+            Notification.error("Login failed!");
 
-app.controller('dataCtrl', function($scope){
-	
+        });
+
+    }
 });
 
 app.controller('reportCtrl', function($scope){
     
 });
 
-app.controller('searchCtrl', function($scope){
+app.controller('perfilCtrl', function($scope, Account, Notification){
+    Account.me().success(function(data){
+        $scope.user = data;
+        $scope.user.photo="https://s3.amazonaws.com/contactsstorage/photo/fernando-pessoa.jpg";
+        //corta a foto de forma inteligente
+        defaultcrop();
+    }).catch(function(data){
+        Notification.error("Unable to locate profile.");
+    });
+
+    $scope.posts = []; 
+    $scope.addPost = function(){
+        $scope.posts.push({title: $scope.title, text:$scope.post, author: "ana", postDate:parseDate()});
+        $scope.post = "";
+        $scope.title = "";
+        console.log($scope.posts);
+    }
+    //Backend deve fazer essa variavel ser true se estiver vendo o proprio perfil e false se não
+    $scope.myself = true;
+});
+
+app.controller('groupsCtrl', function($scope){
+    $scope.groups = [];
+    $scope.groups.push({name: "family", id: 1, users: ["oioioi", "feliz"]});
+    $scope.groups.push({name: "school", id: 2, users: ["ana", "didio"]});
+    $scope.groups.push({name: "theGuys", id: 3, users: ["tonho", "carlos"]});
+});
+
+app.controller('searchUserCtrl', function($scope){
     $scope.users = [];
     $scope.users.push({username: "aniinharl", bio: "oioioi"});
     $scope.users.push({username: "giovanemocellin", bio: "olar"});
@@ -82,7 +116,7 @@ app.controller('detailsPostCtrl', function($scope, $routeParams, $location, Noti
         'title' : 'Titulo 1',
         'text' : 'Olá, @turma2016! A pedido do @joao, segue o vídeo da aula de hoje: $v:"https://upload.wikimedia.org/wikipedia/commons/9/96/Animaci%C3%B3n_Kizomba_B%C3%A1sico.ogg". O conteúdo é tranquilo... $i:"http://upload.wikimedia.org/wikipedia/commons/b/b7/Big_smile.png". Também foi indicado refletir sobre a frase do dia em $l:"http://www.lerolero.com/". Abraço! #aula #prova',
         'postDate' : '02/01/2016 20:34',
-        'editable' : true,
+        'editable' : false,
         'like' : true,
         'dislike' : false
     }
@@ -128,7 +162,6 @@ app.controller('editPostCtrl', function($scope, $routeParams, $location){
         'author' : 'ana',
         'user_nick' : '@analima',
         'title' : 'Titulo 1',
-        'title' : 'Taitulo 1',
         'text' : 'Olá, @turma2016! A pedido do @joao, segue o vídeo da aula de hoje: $v:"https://upload.wikimedia.org/wikipedia/commons/9/96/Animaci%C3%B3n_Kizomba_B%C3%A1sico.ogg". O conteúdo é tranquilo... $i:"http://upload.wikimedia.org/wikipedia/commons/b/b7/Big_smile.png". Também foi indicado refletir sobre a frase do dia em $l:"http://www.lerolero.com/". Abraço! #aula #prova',
         'postDate' : '02/01/2016 20:34'
     }
@@ -205,17 +238,26 @@ app.controller('newGroupCtrl', function($scope, $location, Notification){
     $('#users').select2();
 });
 
-app.controller('openGroupCtrl', function($scope, $location, Notification){
+app.controller('openGroupCtrl', function($scope, $location, Notification, $routeParams){
     //backend pega os nomes de todos os usuários
     $scope.allUsers = [
-        {id: 1, login: 'ana'},
-        {id: 2, login: 'ana1'},
-        {id: 3, login: 'ana2'},
-        {id: 4, login: 'ana3'},
+        {id: 1, username: 'ana', name: "Ana Paula a"},
+        {id: 2, username: 'ana1', name: "Ana Paula 1"},
+        {id: 3, username: 'ana2', name: "Ana Paula 2"},
+        {id: 4, username: 'ana3', name: "Ana Paula 3"},
     ]
+    // $scope.preselected = [
+    //     {id: 1, login: 'ana'},
+    //     {id: 2, login: 'ana1'}
+    // ]
     //backend pega o nome do grupo a ser editado e os usuários
     $scope.formdata = {
-        'name' : 'USP'
+        'name' : 'USP',
+        'id' : $routeParams.id,
+        'users' : [
+             {id: 1, username: 'ana', name: "Ana Paula a"},
+            {id: 2, username: 'ana1', name: "Ana Paula 1"}
+        ]
     };
     $scope.editGroup = function(){
         
@@ -224,8 +266,6 @@ app.controller('openGroupCtrl', function($scope, $location, Notification){
         Notification.success("Group deleted!");
         $location.path('/perfil/');
     }
-    $('#users').select2();
-
 });
 /*app.config(function($routeProvider, $locationProvider){
 	$routeProvider

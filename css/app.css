@@ -8844,3 +8844,8 @@ body {
 main {
   flex: 1 0 auto;
 }
+
+/* line 926, ../sass/app.scss */
+.tocrop {
+  display: none;
+}

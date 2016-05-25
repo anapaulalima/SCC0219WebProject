@@ -1,4 +1,4 @@
-<div class="row" ng-controller="dataCtrl">
+<div class="row">
 	<div class="col-md-offset-2 col-md-6 col-xs-8 col-sm-8">
 		<div class="row">
 			<div class="col-xs-6">
@@ -24,11 +24,12 @@
 		</div>
 	</div>
 	</div>
-	<div class="col-md-4 col-sm-4 col-xs-4 squarePhoto">
-		foto
+	<div class="col-md-4 col-sm-4 col-xs-4">
+		<img src="{{user.photo}}" alt="Perfil photo" data-options='{"width": 250, "height":250, "minScale":0.8}' crossorigin="anonymous" class="tocrop" data-destiny="#photosquare">
+		<canvas id="photosquare"></canvas>
 	</div>
 </div>
-<div class="row" ng-controller="postsCtrl">
+<div class="row" >
 	<div class="col-xs-12 col-sm-2">
 		<div class="row">
 			<div class="col-sm-12">

@@ -15,7 +15,7 @@ angular.module('correileganteApp')
         })
         .when('/perfil/', {
             templateUrl: 'template/perfil.html',
-            controller: 'loginCtrl'
+            controller: 'perfilCtrl'
         })
         .when('/details/:id/', {
             templateUrl: 'template/openPost.html',
@@ -37,7 +37,7 @@ angular.module('correileganteApp')
             templateUrl: 'template/newGroup.html',
             controller: 'newGroupCtrl'
         })
-        .when('/openGroup/', {
+        .when('/openGroup/:id', {
             templateUrl: 'template/openGroup.html',
             controller: 'openGroupCtrl'
         })
@@ -50,12 +50,16 @@ angular.module('correileganteApp')
             controller: 'changeDBCtrl'
         })
         .when('/searchResult/', {
-            templateUrl: 'template/searchResult.html',
-            controller: 'searchCtrl'
+            templateUrl: 'template/searchUserResult.html',
+            controller: 'searchUserCtrl'
         })
         .when('/report/', {
             templateUrl: 'template/report.html',
             controller: 'reportCtrl'
+        })
+        .when('/groups/', {
+            templateUrl: 'template/myGroups.html',
+            controller: 'groupsCtrl'
         })
         .otherwise({
             redirectTo: '/'

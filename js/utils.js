@@ -1,14 +1,3 @@
-//faz a foto de perfil ficar quadrada
-function square(selector){
-    var $foto = $(selector);
-	if ($foto.width() > $foto.height()){
-		$foto.height("100%");
-	}else if ($foto.width() < $foto.height()){
-		$foto.width("100%");
-	}
-}
-
-
 function parseDate(date){
     //inicio de pedaço de codigo
     var str = "";
@@ -32,7 +21,7 @@ function parseDate(date){
     return str;
 }
 
-
-$(document).ready(function(){
-    square(".square-photo");
-});
+var domain = "http://10.11.3.70:1337/"
+function urlpath(path){
+    return domain + path;
+}

@@ -20,6 +20,9 @@
     "angular-route": "^1.5.3",
     "angular": "^1.5.5",
     "angular-ui-notification": "^0.2.0",
-    "select2": "^4.0.2"
+    "select2": "^4.0.2",
+    "angular-ui-select": "^0.17.1",
+    "smartcrop": "*",
+    "angular-cookies": "^1.5.5"
   }
 }
