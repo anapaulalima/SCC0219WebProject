@@ -13,9 +13,13 @@ angular.module('correileganteApp')
             templateUrl: 'template/timeline.html',
             controller: 'loginCtrl'
         })
-        .when('/perfil/', {
-            templateUrl: 'template/perfil.html',
-            controller: 'perfilCtrl'
+        .when('/profile/:username', {
+            templateUrl: 'template/profile.html',
+            controller: 'otherProfileCtrl'
+        })
+        .when('/profile/', {
+            templateUrl: 'template/profile.html',
+            controller: 'myProfileCtrl'
         })
         .when('/details/:id/', {
             templateUrl: 'template/openPost.html',
@@ -66,4 +70,4 @@ angular.module('correileganteApp')
         });
         
         $locationProvider.html5Mode(true);
-    }])
+    }]);

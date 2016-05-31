@@ -18,7 +18,8 @@ String.prototype.parseVDO = function() {
 String.prototype.parseUsername = function() {
     return this.replace(/[@]+[A-Za-z0-9-_]+/g, function(u) {
         var username = u.replace("@","");
-        return u.link("https://twitter.com/"+username); //backend
+        return '<a href="/profile/'+username+'" ng-href="/profile/'+username+'">'+u+'</a>';
+        // return u.link("/profile/"+username); //backend
     });
 };
 

@@ -1,0 +1,81 @@
+<div class="row">
+    <div class="col-xs-12" >
+        <h3>Post</h3>
+    </div>
+    <div class="col-xs-12">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <h4>{{post.title}}</h4>
+            <p ng-bind-html="post.text | linkfy"></p>
+        </div>
+        <div class="panel-footer">
+            por {{post.author}} em {{post.postDate}}
+        </div>
+    </div> 
+    </div>
+</div>
+<div class="row" ng-if="!post.editable">
+    <div class="col-xs-12">
+        <button class="btn btn-success" data-toggle="modal" data-target="#share-modal">Share</button>
+        <div id="share-modal" class="modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-body">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <p>Do you really want to share <b>{{post.title}}</b>?</p>
+                        </div>
+                        <div class="col-xs-6">
+                            <button class="form-control btn btn-success" ng-click="sharePost()">Share</button>
+                        </div>
+                        <div class="col-xs-6">
+                            <button class="form-control btn btn-default" data-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="btn-group" data-toggle="buttons">
+            <label class="btn btn-primary" ng-class="{'active': post.like}" ng-click="like()">
+                <input type="checkbox" ng-model="post.like" > Like 
+            </label>
+            <label class="btn btn-primary" ng-class="{'active': post.dislike}" ng-click="dislike()">
+                <input type="checkbox" ng-model="post.dislike" > Dislike
+            </label>
+        </div>
+    </div>
+</div>
+<div class="row" ng-if="post.editable">
+    <div class="col-xs-6">
+        <div class="form-group">
+            <a class="form-control btn btn-success" ng-href="/editPost/{{post.id}}/">Edit</a>
+        </div>
+    </div>
+    <div class="col-xs-6">
+        <div class="form-group">
+            <button class="form-control btn btn-danger" data-toggle="modal" data-target="#delete-modal">Delete</button>
+        </div>
+    </div>
+    <div id="delete-modal" class="modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-body">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <p>Do you really want to delete <b>{{post.title}}</b>?</p>
+                    </div>
+                    <div class="col-xs-6">
+                        <button class="form-control btn btn-danger" ng-click="deletePost()">Delete</button>
+                    </div>
+                    <div class="col-xs-6">
+                        <button class="form-control btn btn-default" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        
+    </div>
+</div>

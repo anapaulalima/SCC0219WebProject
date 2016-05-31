@@ -1,0 +1,26 @@
+{
+  "name": "correilegante",
+  "version": "1.0.0",
+  "description": "Twitter-like project for SCC0219/2016-01",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/anapaulalima/SCC0219WebProject.git"
+  },
+  "author": "Ana Paula Lima <anapauladosreislima@gmail.com>, Antonio Pedro Lavezzo Mazzarolo <antoniop.lm@hotmail.com>, Giovane Cunha Mocellin <giovane.mocellin@gmail.com>",
+  "license": "UNLICENSED",
+  "homepage": "https://github.com/anapaulalima/SCC0219WebProject",
+  "readme": "readme.md",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-cssmin": "^1.0.1",
+    "grunt-contrib-watch": "^1.0.0"
+  }
+}

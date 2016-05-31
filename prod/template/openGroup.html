@@ -1,0 +1,33 @@
+<div class= "col-sm-12 col-lg-10">
+	<div class = "row">
+		<div class="col-sm-12 col-lg-12">
+			<div class="row">
+				<div class="col-xs-12">
+					<h3>Edit Your Group</h3>
+					<form ng-submit="editGroup()">
+						<div class="form-group" ng-class="{'has-error': formerror.name}">
+							<label for="name"><h4>Group Name</h4></label>
+							<input class="form-control" id="name" ng-model="formdata.name" type="text" required>
+							<span class="help-block" ng-if="formerror.name">{{formerror.name}}</span>
+						</div>
+						<div class="form-group" ng-class="{'has-error': formerror.users}">
+							<label for="users"><h4>Users</h4></label>
+							<ui-select multiple ng-model="formdata.users" theme="bootstrap" sortable="true" close-on-select="true" >
+								<ui-select-match placeholder="Select user...">@{{$item.username}}</ui-select-match>
+								<ui-select-choices repeat="user in allUsers | propsFilter: {name: $select.search, username: $select.search}">
+								    <div ng-bind-html="$item.name | highlight: $select.search"></div>
+								    <small>{{user.name}}  @{{user.username}}</small>
+								</ui-select-choices>
+						    </ui-select>
+							<span class="help-block" ng-if="formerror.users">{{formerror.users}}</span>
+						</div>
+						
+						<button type="submit" class="btn btn-success">Edit</button>
+						<button type="submit" ng-click="deleteGroup()" class="btn btn-danger">Remove</button>
+						
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

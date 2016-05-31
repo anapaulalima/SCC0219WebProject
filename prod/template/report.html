@@ -1,0 +1,34 @@
+<div class= "col-sm-12 col-lg-10">
+    <div class = "row">
+        <div class="col-sm-12 col-lg-12">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h3>Report</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="sel1">Type:</label>
+                            <select class="form-control" id="select" ng-model="selectReport">
+                                <option ng-value="1">Top 20 users by period</option>
+                                <option ng-value="2">Top 10 posts by period</option>
+                                <option ng-value="3">Similarity by user</option>
+                            </select>
+                        </div>
+                        <div class="form-group" ng-if="selectReport == 1 || selectReport == 2">
+                            <label for="begin"><h4>Begin</h4></label>
+                            <input class="form-control" id="begin" type="date" required>
+                        </div>
+                        <div class="form-group" ng-if="selectReport == 1 || selectReport == 2">
+                            <label for="end"><h4>End</h4></label>
+                            <input class="form-control" id="end" type="date" required>
+                        </div>
+                        <div class="form-group" ng-if="selectReport == 3">
+                            <label for="username"><h4>Username</h4></label>
+                            <input class="form-control" id="username" placeholder="Username" type="text" required>
+                        </div>
+                        <button type="submit" ng-click="report()" class="btn btn-info">Report</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
