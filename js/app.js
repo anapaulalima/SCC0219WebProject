@@ -6,6 +6,8 @@ angular.module('correileganteApp', [
     'ngCookies'
 ]).config(['$httpProvider',function($httpProvider) {
 	$httpProvider.defaults.withCredentials = true;
-}]).run(['$rootScope', function($rootScope){
-	setLocalUser(localStorage['localUser'], $rootScope);
+}]).run(['$rootScope', 'Account', function($rootScope, Account){
+	Account.me().success(function(data){
+		setLocalUser(data, $rootScope);
+	}).catch();
 }]);

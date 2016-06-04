@@ -1,3 +1,4 @@
+
 //codigo baseado em http://someweblog.com/url-regular-expression-javascript-link-shortener/
 
 String.prototype.parseURL = function() {
@@ -32,7 +33,7 @@ String.prototype.parseHashtag = function() {
 
 angular.module('correilegante-parser', []).filter('linkfy', ["$sce", function($sce) {
     return function(input) {
-        console.log(input);
+        //console.log(input);
         return $sce.trustAsHtml(input.parseURL().parseUsername().parseHashtag().parseIMG().parseVDO());
     };
 }]);

@@ -1,20 +1,20 @@
 angular.module('correileganteApp').controller('timelineCtrl', function($scope, $location, Post, Notification){
     $scope.posts = [];
-    console.log("entrei na timeline");
+    //console.log("entrei na timeline");
     Post.get_timeline().success(function(data){
-    	console.log(data);
+    	//console.log(data);
     	if (data.status == "error"){
     		Notification.error("Unable to load timeline");
     	} else {
     		$scope.posts = data.result;
-    		console.log($scope.posts);
+    		//console.log($scope.posts);
     	}
     });
 
     $scope.addPost = function(){
         //console.log($scope);
         Post.new({"formdata": $scope.newpost}).success(function(data){
-            console.log(data);
+            //console.log(data);
             if(data.status=="error") {
                 Notification.error("Unable to create post");
             } else {

@@ -37,6 +37,10 @@ angular.module('correileganteApp')
             templateUrl: 'template/editUser.html',
             controller: 'editUserCtrl'
         })
+        .when('/editPassword/', {
+            templateUrl: 'template/editPassword.html',
+            controller: 'editPasswordCtrl'
+        })
         .when('/newGroup/', {
             templateUrl: 'template/newGroup.html',
             controller: 'newGroupCtrl'

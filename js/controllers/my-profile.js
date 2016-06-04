@@ -21,7 +21,7 @@ angular.module('correileganteApp').controller('myProfileCtrl', function($scope, 
     $scope.addPost = function(){
         //console.log($scope);
         Post.new({"formdata": $scope.newpost}).success(function(data){
-            console.log(data);
+            //console.log(data);
             if(data.status=="error") {
                 Notification.error("Unable to create post");
             } else {
