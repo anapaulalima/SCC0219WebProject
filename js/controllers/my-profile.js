@@ -14,12 +14,12 @@ angular.module('correileganteApp').controller('myProfileCtrl', function($scope, 
             Notification.error("Unable to locate profile");
         }
     }).catch(function(data){
-        console.log(data);
+        //console.log(data);
         Notification.error("Unable to locate profile");
     });
 
     $scope.addPost = function(){
-        console.log($scope);
+        //console.log($scope);
         Post.new({"formdata": $scope.newpost}).success(function(data){
             console.log(data);
             if(data.status=="error") {
@@ -31,6 +31,7 @@ angular.module('correileganteApp').controller('myProfileCtrl', function($scope, 
                 Notification.success("Post created");
             }
         }).catch(function(data){
+            //console.log(data);
             Notification.error("Unable to create post");
         });
     }

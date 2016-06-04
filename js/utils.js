@@ -25,3 +25,13 @@ var domain = "http://localhost:1337/"
 function urlpath(path){
     return domain + path;
 };
+
+function setLocalUser(data, $rootScope){
+    $rootScope.localUser = data;
+    localStorage["localUser"] = data;
+};
+
+function deleteLocalUser($rootScope){
+    $rootScope.localUser = null;
+    localStorage["localUser"] = null;
+};

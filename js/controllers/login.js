@@ -1,4 +1,4 @@
-angular.module('correileganteApp').controller('loginCtrl', function($scope, $location, Notification, Auth, $cookieStore){
+angular.module('correileganteApp').controller('loginCtrl', function($scope, $rootScope, $location, Notification, Auth, $cookieStore){
     $scope.onSubmit = function(){
         var formdata = {
             username : $scope.username,
@@ -8,7 +8,8 @@ angular.module('correileganteApp').controller('loginCtrl', function($scope, $loc
             Notification.success("Login successfully!");
             //$cookieStore.put("loggedIn", "true");
             //$scope.$emit("updateHeader");
-            console.log(data);
+            //console.log(data);
+            $rootScope.localUser = data;
             $location.path("/timeline/");
         }).catch(function(data){
             Notification.error("Login failed!");

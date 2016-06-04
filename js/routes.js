@@ -11,7 +11,7 @@ angular.module('correileganteApp')
         })
         .when('/timeline/', {
             templateUrl: 'template/timeline.html',
-            controller: 'loginCtrl'
+            controller: 'timelineCtrl'
         })
         .when('/profile/:username', {
             templateUrl: 'template/profile.html',

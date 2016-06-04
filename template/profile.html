@@ -25,8 +25,20 @@
 	</div>
 	</div>
 	<div class="col-md-4 col-sm-4 col-xs-4">
-		<img src="{{user.photo}}" alt="Perfil photo" data-options='{"width": 250, "height":250, "minScale":0.8}' crossorigin="anonymous" class="tocrop" data-destiny="#photosquare">
-		<canvas id="photosquare"></canvas>
+		<div class="row">
+			<div class="col-xs-12">
+				<img src="{{user.photo}}" alt="Perfil photo" data-options='{"width": 250, "height":250, "minScale":0.8}' crossorigin="anonymous" class="tocrop" data-destiny="#photosquare">
+				<canvas id="photosquare"></canvas>
+			</div>
+		</div>
+		<div class="row" ng-if="!myself">
+			<div class="col-xs-12">
+				<form>
+				    <button type="submit" ng-click="follow()" class="btn btn-block" ng-class="{'btn-success': following}" style="max-width:250px">{{(following)? "Following" : "Follow"}}</button>
+				</form>
+			</div>
+		</div>
+		
 	</div>
 </div>
 <div class="row" >
