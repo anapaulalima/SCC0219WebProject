@@ -42,12 +42,16 @@ angular.module('correileganteApp')
             controller: 'editPasswordCtrl'
         })
         .when('/newGroup/', {
-            templateUrl: 'template/newGroup.html',
+            templateUrl: 'template/editGroup.html',
             controller: 'newGroupCtrl'
         })
         .when('/openGroup/:id', {
             templateUrl: 'template/openGroup.html',
             controller: 'openGroupCtrl'
+        })
+        .when('/editGroup/:id', {
+            templateUrl: 'template/editGroup.html',
+            controller: 'editGroupCtrl'
         })
         .when('/timeline/', {
             templateUrl: 'template/timeline.html',

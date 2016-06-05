@@ -24,6 +24,14 @@ String.prototype.parseUsername = function() {
     });
 };
 
+String.prototype.parseGroupName = function() {
+    return this.replace(/[%]+[A-Za-z0-9-_]+/g, function(u) {
+        var groupname = u.replace("%","");
+        return '<a href="/group/'+groupname+'" ng-href="/group/'+groupname+'">'+u+'</a>';
+        // return u.link("/profile/"+username); //backend
+    });
+};
+
 String.prototype.parseHashtag = function() {
     return this.replace(/[#]+[A-Za-z0-9-_]+/g, function(t) {
         var tag = t.replace("#","%23");

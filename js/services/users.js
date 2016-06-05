@@ -31,6 +31,9 @@ angular.module("correileganteApp").factory('Users', ['$http', function($http){
 			data = {formdata: formdata};
 			data.formdata.birthday = data.formdata.birthday_date.toISOString().slice(0, 10);
 			return $http.post(urlpath("user/new_user"), data);
+		},
+		all: function(){
+			return $http.get(urlpath("user"));
 		}
 	};
 }]);

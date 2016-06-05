@@ -1,4 +1,4 @@
-<div class="row" ng-controller="searchCtrl">
+<div class="row">
 	<div class="col-xs-12 col-sm-2">
 		<div class="row">
 			<div class="col-sm-12">
@@ -15,11 +15,11 @@
 	<div class= "col-xs-12 col-sm-10">
 
 			<div class="col-sm-12">
-				<div class="row">
+				<div class="row" ng-repeat="atual in [{title: 'My Groups', groups: ownerOf}, {title: 'Groups I am a member', groups: memberOf}]">
 					<div class="col-sm-12" >
-						<h3>Groups</h3>
+						<h3>{{atual.title}}</h3>
 					</div>
-					<div class="col-xs-12" ng-repeat="group in groups">
+					<div class="col-xs-12" ng-repeat="group in atual.groups">
 					<div class="panel panel-default">
 						<div class="panel-body">
 							<div class="col-sm-12">
@@ -27,8 +27,8 @@
 									<div class="col-sm-12">
 										<a ng-href="/openGroup/{{group.id}}"><h4>{{group.name}}</h4></a>
 									</div>
-									<div class="col-sm-12" ng-repeat="user in group.users">
-										<h5>{{user}}</h5>
+									<div class="col-sm-12" ng-repeat="user in group.members">
+										<h5><a ng-href="profile/{{user.username}}">{{user.username}}</a></h5>
 									</div><!-- um desse para cada usuário no grupo-->
 								</div>
 							</div>

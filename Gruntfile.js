@@ -11,6 +11,7 @@ module.exports = function(grunt) {
 				src: [
 					'bower_components/angular-ui-notification/dist/angular-ui-notification.min.css',
 					'bower_components/angular-ui-select/dist/select.min.css',
+					'bower_components/select2/dist/css/select2.min.css',
 					'css/**/*.css'
 					],
 				dest: 'prod/css/all.min.css'
@@ -25,6 +26,7 @@ module.exports = function(grunt) {
 					'bower_components/angular-ui-select/dist/select.min.js',
 					'bower_components/angular-cookies/angular-cookies.min.js',
 					'bower_components/smartcrop/smartcrop.js',
+					'bower_components/select2/dist/js/select2.full.min.js',
 					'js/**/*.js'
 				],
 				dest: 'prod/js/all.min.js'

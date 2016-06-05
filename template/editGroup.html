@@ -3,8 +3,8 @@
         <div class="col-sm-12 col-lg-12">
             <div class="row">
                 <div class="col-xs-12">
-                    <h3>Create New Group</h3>
-                    <form ng-submit="newGroup()">
+                    <h3>{{action}} Group</h3>
+                    <form>
                         <div class="form-group" ng-class="{'has-error': formerror.name}">
                             <label for="name"><h4>Group Name</h4></label>
                             <input class="form-control" id="name" placeholder="Name" ng-model="formdata.name" type="text" required>
@@ -21,7 +21,9 @@
                             </ui-select>
                             <span class="help-block" ng-if="formerror.users">{{formerror.users}}</span>
                         </div>
-                        <button type="submit" class="btn btn-success">Create</button>
+                        <input id="id" ng-model="formdata.id" type="hidden">
+                        <button type="submit" class="btn btn-success" ng-click="submitForm()">{{button}}</button>
+                        <button class="btn btn-error" ng-click="delete()" ng-if="formdata.id">Delete</button>
                     </form>
                 </div>
             </div>
