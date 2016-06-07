@@ -1,21 +1,16 @@
-<div class= "col-sm-12 col-lg-10">
-    <div class = "row">
-        <div class="col-sm-12 col-lg-12">
-            <div class="row">
-                <div class="col-xs-12">
-                    <form>
-                        <div class="form-group">
-                            <label for="writeNewPost"><h4>Title</h4></label>
-                            <input class="form-control" id="writeNewTitle" placeholder="Title" ng-model="post.title" type="text" >
-                        </div>
-                        <div class="form-group">
-                            <label for="writeNewPost"><h4>New post</h4></label>
-                            <textarea class="form-control" id="writeNewPost" placeholder="Post" ng-model="post.text"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-default" ng-click="editPost()">Edit</button>
-                    </form>
-                </div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <form>
+            <div class="form-group">
+                <label for="writeNewPost"><h4>Title</h4></label>
+                <input class="form-control" id="writeNewTitle" placeholder="Title" ng-model="post.title" type="text" >
             </div>
-        </div>
+            <div class="form-group">
+                <label for="writeNewPost"><h4>New post</h4></label>
+                <textarea class="form-control" id="writeNewPost" placeholder="Post" ng-model="post.text"></textarea>
+            </div>
+            <button type="submit" class="btn btn-default" ng-click="editPost()">Edit</button>
+        </form>
     </div>
 </div>

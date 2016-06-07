@@ -28,6 +28,7 @@ function urlpath(path){
 
 function setLocalUser(data, $rootScope){
     $rootScope.localUser = data;
+    //console.log("setando");
     localStorage["localUser"] = data;
 };
 

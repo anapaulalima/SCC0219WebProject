@@ -11,6 +11,12 @@ angular.module("correileganteApp").factory('Post', ['$http', function($http){
 		},
 		get_timeline: function(){
 			return $http.get(urlpath("tweet/following_posts"));
+		},
+		share: function(data){
+			return $http.post(urlpath("tweet/retweet"), data);
+		},
+		edit: function(data){
+			return $http.post(urlpath("tweet/update_tweet"), data);
 		}
 	};
 }]);

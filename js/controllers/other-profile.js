@@ -30,6 +30,7 @@ angular.module('correileganteApp').controller('otherProfileCtrl', function($scop
                 //corta a foto de forma inteligente
                 defaultcrop();
                 $scope.posts = data[1].data.result;
+                $scope.posts.reverse();
                 $scope.following = data[2].data.following;
             } else {
                 Notification.error("Unable to locate profile.");

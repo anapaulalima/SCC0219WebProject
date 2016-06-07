@@ -7,9 +7,6 @@ angular.module('correileganteApp').controller('loginCtrl', function($scope, $roo
         Auth.login(formdata).success(function(data){
             if (data.user){
                 Notification.success("Login successfully!");
-                //$cookieStore.put("loggedIn", "true");
-                //$scope.$emit("updateHeader");
-                //console.log(data);
                 $rootScope.localUser = data;
                 $location.path("/timeline/");
             } else {

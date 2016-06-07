@@ -7,7 +7,7 @@ angular.module('correileganteApp').controller('timelineCtrl', function($scope, $
     		Notification.error("Unable to load timeline");
     	} else {
     		$scope.posts = data.result;
-    		//console.log($scope.posts);
+    		console.log($scope.posts);
     	}
     });
 

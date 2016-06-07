@@ -3,18 +3,18 @@
         <h3>Post</h3>
     </div>
     <div class="col-xs-12">
-    <div class="panel panel-default">
-        <div class="panel-body">
-            <h4>{{post.title}}</h4>
-            <p ng-bind-html="post.text | linkfy"></p>
-        </div>
-        <div class="panel-footer">
-            por {{post.author}} em {{post.postDate}}
-        </div>
-    </div> 
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h4>{{post.title || post.retweet.title}}</h4>
+                <p ng-bind-html="(post.text || post.retweet.text) | linkfy"></p>
+            </div>
+            <div class="panel-footer">
+                por <a ng-href="profile/{{post.user.username}}">{{post.user.username}}</a> em <a ng-href="details/{{post.id}}">{{post.createdAt}}</a> <span ng-if="post.retweet">from <a ng-href="details/{{post.retweet.id}}">Post</a> </span> 
+            </div>
+        </div> <!--um desse para cada post-->
     </div>
 </div>
-<div class="row" ng-if="!post.editable">
+<div class="row" ng-if="post.user.id != localUser.user.id">
     <div class="col-xs-12">
         <button class="btn btn-success" data-toggle="modal" data-target="#share-modal">Share</button>
         <div id="share-modal" class="modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
@@ -38,19 +38,19 @@
 
         </div>
         <div class="btn-group" data-toggle="buttons">
-            <label class="btn btn-primary" ng-class="{'active': post.like}" ng-click="like()">
-                <input type="checkbox" ng-model="post.like" > Like 
+            <label class="btn btn-default" ng-class="{'btn-primary': post.like}" ng-model="post.like" ng-click="like()">
+                Like 
             </label>
-            <label class="btn btn-primary" ng-class="{'active': post.dislike}" ng-click="dislike()">
-                <input type="checkbox" ng-model="post.dislike" > Dislike
+            <label class="btn btn-default" ng-class="{'btn-primary': post.dislike}" ng-model="post.dislike" ng-click="dislike()">
+                 Dislike
             </label>
         </div>
     </div>
 </div>
-<div class="row" ng-if="post.editable">
+<div class="row" ng-if="post.user.id == localUser.user.id">
     <div class="col-xs-6">
         <div class="form-group">
-            <a class="form-control btn btn-success" ng-href="/editPost/{{post.id}}/">Edit</a>
+            <a class="form-control btn btn-success" ng-href="/editPost/{{post.id}}/" ng-if="!post.retweet">Edit</a>
         </div>
     </div>
     <div class="col-xs-6">

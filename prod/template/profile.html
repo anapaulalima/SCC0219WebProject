@@ -81,15 +81,15 @@
 						<h3>Posts</h3>
 					</div>
 					<div class="col-xs-12" ng-repeat="post in posts">
-					<div class="panel panel-default">
-						<div class="panel-body">
-							<h4>{{post.title}}</h4>
-							<p ng-bind-html="post.text | linkfy"></p>
-						</div>
-						<div class="panel-footer">
-							por <a ng-href="profile/{{post.user.username}}">{{post.user.username}}</a> em <a ng-href="details/{{post.id}}">{{post.createdAt}}</a>
-						</div>
-					</div> <!--um desse para cada post-->
+						<div class="panel panel-default">
+							<div class="panel-body">
+								<h4>{{post.title || post.retweet.title}}</h4>
+								<p ng-bind-html="(post.text || post.retweet.text) | linkfy"></p>
+							</div>
+							<div class="panel-footer">
+								por <a ng-href="profile/{{post.user.username}}">{{post.user.username}}</a> em <a ng-href="details/{{post.id}}">{{post.createdAt}}</a> <span ng-if="post.retweet">from <a ng-href="details/{{post.retweet.id}}">Post</a> </span> 
+							</div>
+						</div> <!--um desse para cada post-->
 					</div>
 				</div>
 				<div class="row">
