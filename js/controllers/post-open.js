@@ -15,37 +15,32 @@ angular.module('correileganteApp').controller('detailsPostCtrl', function($scope
                     }
                 }
             } else {
-                //console.log(data);
                 Notification.error("Unable to load post");
                 $location.path("/timeline/");
             }
         },
         function(data){
-            //console.log(data);
             Notification.error("Unable to load post");
             $location.path("/timeline/");
         }
     );
-    // Post.get($routeParams.id).success(function(data){
-    //     console.log(data);
-    //     $scope.post = data;
-    // }).catch(function(data){
-    //     Notification.error("Unable to load post");
-    //     $location.path("/timeline/");
-    // });
-    // Reaction.my_reaction($routeParams.id).success(function(data){
-    //     console.log("success");
-    //     console.log(data);
-    // }).catch(function(data){
-    //     console.log("error");
-    //     console.log(data);
-    // });
 
     $scope.deletePost = function(){
         $("#delete-modal").modal('hide');
-        Notification.success("Post deleted!");
-        $location.path('/perfil');
-    }; //não ta feito
+        data = {};
+        data.formdata = {};
+        data.formdata.id = $scope.post.id;
+        Post.delete(data).success(function(data){
+            if(data.status=="success"){
+                Notification.success("Post deleted");
+                $location.path('/timeline/');
+            } else {
+                Notification.error("Unable to delete");
+            }
+        }).catch(function(data){
+            Notification.error("Unable to delete");
+        });
+    }; 
 
     $scope.sharePost = function(){
         $("#share-modal").modal('hide');
@@ -57,15 +52,13 @@ angular.module('correileganteApp').controller('detailsPostCtrl', function($scope
                 Notification.success("Post shared");
                 $location.path('/timeline/');
             } else {
-                //console.log(data);
                 Notification.error("Unable to share post");
             }
         }).catch(function(data){
-            //console.log(data);
             Notification.error("Unable to share post");
         });   
     };
-    //Backend guarda esses dados
+
     $scope.like = function(){
         var sendData = {};
         sendData.formdata = {};
@@ -111,15 +104,4 @@ angular.module('correileganteApp').controller('detailsPostCtrl', function($scope
             Notification.error("Unable to react");
         });
     };
-
-    // $scope.dislike = function(){
-    //     console.log("dislike, like "+ $scope.post.like + " dislike " + $scope.post.dislike);
-    //     if ($scope.post.dislike){
-    //         $scope.post.dislike = false;
-    //     } else {
-    //         $scope.post.dislike = true;
-    //         $scope.post.like = false;
-    //     }
-    //     console.log("dislike, like "+ $scope.post.like + " dislike " + $scope.post.dislike);
-    // } //nao ta feito
 });

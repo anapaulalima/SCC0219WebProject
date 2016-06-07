@@ -17,6 +17,9 @@ angular.module("correileganteApp").factory('Post', ['$http', function($http){
 		},
 		edit: function(data){
 			return $http.post(urlpath("tweet/update_tweet"), data);
+		},
+		delete: function(data){
+			return $http.post(urlpath("tweet/delete_tweet"), data);
 		}
 	};
 }]);

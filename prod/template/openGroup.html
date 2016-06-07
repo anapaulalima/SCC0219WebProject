@@ -22,4 +22,5 @@
 		</div> <!--um desse para cada user-->
 	</div>
 	<a class="btn btn-success" ng-href="/editGroup/{{group.id}}" ng-if="group.owner.id == localUser.user.id">Edit</a>
+	<button class="btn btn-error" ng-click="delete()" ng-if="group.owner.id == localUser.user.id">Delete</button>
 </div>

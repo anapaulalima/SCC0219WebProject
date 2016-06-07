@@ -38,20 +38,5 @@ angular.module('correileganteApp').controller('editGroupCtrl', function($scope, 
         });
     };
 
-    $scope.delete = function(){
-        console.log("chamei o delete");
-        var sendData = {name: $scope.formdata.name};
-        Group.delete(sendData).success(function(data){
-            if (data.status=="success"){
-                Notification.success("Group deleted");
-                $location.path("/timeline/");
-            } else {
-                Notification.error("Unable to delete group");
-            }
-        }).catch(function(data){
-            Notification.error("Unable to delete group");
-        });
-    };
-
     $('#users').select2();
 });

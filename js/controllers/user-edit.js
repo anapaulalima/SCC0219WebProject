@@ -1,4 +1,4 @@
-angular.module('correileganteApp').controller('editUserCtrl', function($scope, $location, Account, Notification){
+angular.module('correileganteApp').controller('editUserCtrl', function($scope, $location, Users, Account, Notification){
     $scope.formerror = {};
     $scope.formdata = {};
     Account.me().success(function(data){
@@ -24,23 +24,30 @@ angular.module('correileganteApp').controller('editUserCtrl', function($scope, $
                     Notification.success("User updated");
                     $location.path("/timeline/");
                 } else {
-                    console.log(data);
                     Notification.error("Couldn't edit user");
                 }
             }).catch(function(data){
-                console.log(data);
                 Notification.error("Couldn't edit user");
             });
         }
-    }
+    };
       
     $scope.changePassword = function(){
         $location.path('/editPassword/');
-    }
+    };
 
     $scope.deleteUser = function(){
-        Notification.success("User deleted!");
-        $location.path('/login/');
-    }
+        Users.delete().success(function(data){
+            if (data.status=="success"){
+                Notification.success("User deleted");
+                $location.path('/login/');
+            } else {
+                Notification.error("Unable to delete");
+            }
+        }).catch(function(data){
+            Notification.error("Unable to delete");
+        });
+        
+    };
 
 });

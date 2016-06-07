@@ -34,6 +34,9 @@ angular.module("correileganteApp").factory('Users', ['$http', function($http){
 		},
 		all: function(){
 			return $http.get(urlpath("user"));
+		},
+		delete: function(){
+			return $http.post(urlpath("user/delete_user"));
 		}
 	};
 }]);
