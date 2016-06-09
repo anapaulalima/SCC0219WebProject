@@ -6,21 +6,22 @@
 			<h4>Users</h4>
 		</div>
 		<div class="col-xs-12" ng-repeat="user in group.members">
-		<div class="panel panel-default">
-			<div class="panel-body">
-				<div class="col-sm-6">
-					<div class="row">
-						<div class="col-sm-12">
-							<h4><a ng-href="profile/{{user.username}}">{{user.username}}</a></h4>
-						</div>
-						<div class="col-sm-12">
-							<h5>{{user.description}}</h5>
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<div class="col-sm-6">
+						<div class="row">
+							<div class="col-sm-12">
+								<h4><a ng-href="profile/{{user.username}}">{{user.username}}</a></h4>
+							</div>
+							<div class="col-sm-12">
+								<h5>{{user.description}}</h5>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		</div> <!--um desse para cada user-->
-	</div>
+			</div> <!--um desse para cada user-->
+		</div>
 	<a class="btn btn-success" ng-href="/editGroup/{{group.id}}" ng-if="group.owner.id == localUser.user.id">Edit</a>
 	<button class="btn btn-error" ng-click="delete()" ng-if="group.owner.id == localUser.user.id">Delete</button>
+	</div>
 </div>

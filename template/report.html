@@ -15,17 +15,17 @@
                         </div>
                         <div class="form-group" ng-if="selectReport == 1 || selectReport == 2">
                             <label for="begin"><h4>Begin</h4></label>
-                            <input class="form-control" id="begin" type="date" required>
+                            <input class="form-control" id="begin" ng-model="formdata.begin" type="date" required>
                         </div>
                         <div class="form-group" ng-if="selectReport == 1 || selectReport == 2">
                             <label for="end"><h4>End</h4></label>
-                            <input class="form-control" id="end" type="date" required>
+                            <input class="form-control" id="end" ng-model="formdata.end" type="date" required>
                         </div>
                         <div class="form-group" ng-if="selectReport == 3">
                             <label for="username"><h4>Username</h4></label>
-                            <input class="form-control" id="username" placeholder="Username" type="text" required>
+                            <input class="form-control" id="username" ng-model="formdata.username" placeholder="Username" type="text" required>
                         </div>
-                        <button type="submit" ng-click="report()" class="btn btn-info">Report</button>
+                        <button ng-click="report()" class="btn btn-info">Report</button>
                     </form>
                 </div>
             </div>

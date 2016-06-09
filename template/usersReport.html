@@ -1,0 +1,20 @@
+
+<div class="row">
+	<div class="col-xs-12"><h4>{{pageTitle}}</h4></div>
+	<div class="col-xs-12" ng-repeat="user in users">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<div class="col-sm-6">
+					<div class="row">
+						<div class="col-sm-12">
+							<h4><a ng-href="profile/{{user.username}}">{{user.username}}</a></h4>
+						</div>
+						<div class="col-sm-12">
+							<h5>{{user.description}}</h5>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div> <!--um desse para cada user-->
+	</div>
+</div>

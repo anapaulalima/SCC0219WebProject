@@ -37,6 +37,9 @@ angular.module("correileganteApp").factory('Users', ['$http', function($http){
 		},
 		delete: function(){
 			return $http.post(urlpath("user/delete_user"));
+		},
+		search: function(username){
+			return $http.get(urlpath("user/search_user/"+username));
 		}
 	};
 }]);

@@ -61,9 +61,9 @@ angular.module('correileganteApp')
             templateUrl: 'template/changeDB.html',
             controller: 'changeDBCtrl'
         })
-        .when('/searchResult/', {
-            templateUrl: 'template/searchUserResult.html',
-            controller: 'searchUserCtrl'
+        .when('/search/:text', {
+            templateUrl: 'template/searchResult.html',
+            controller: 'searchCtrl'
         })
         .when('/report/', {
             templateUrl: 'template/report.html',
@@ -72,6 +72,18 @@ angular.module('correileganteApp')
         .when('/groups/', {
             templateUrl: 'template/myGroups.html',
             controller: 'groupsCtrl'
+        })
+        .when('/userTop20/:date', {
+            templateUrl: 'template/usersReport.html',
+            controller: 'userTop20Ctrl'
+        })
+        .when('/userSimilarity10/:username', {
+            templateUrl: 'template/usersReport.html',
+            controller: 'userSimilarity10Ctrl'
+        })
+        .when('/postTop20/:date', {
+            templateUrl: 'template/postsReport.html',
+            controller: 'postTop20Ctrl'
         })
         .otherwise({
             redirectTo: '/'
