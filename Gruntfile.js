@@ -27,6 +27,7 @@ module.exports = function(grunt) {
 					'bower_components/angular-cookies/angular-cookies.min.js',
 					'bower_components/smartcrop/smartcrop.js',
 					'bower_components/select2/dist/js/select2.full.min.js',
+					'bower_components/ng-file-upload/ng-file-upload-all.min.js',
 					'js/**/*.js'
 				],
 				dest: 'prod/js/all.min.js'

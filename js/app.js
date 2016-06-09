@@ -3,7 +3,8 @@ angular.module('correileganteApp', [
     'correilegante-parser',
     'ui-notification',
     'ui.select',
-    'ngCookies'
+    'ngCookies',
+    'ngFileUpload'
 ]).config(['$httpProvider',function($httpProvider) {
 	$httpProvider.defaults.withCredentials = true;
 }]).run(['$rootScope', 'Account', '$location', 'Notification', function($rootScope, Account, $location, Notification){

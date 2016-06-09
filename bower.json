@@ -24,6 +24,7 @@
     "angular-ui-select": "^0.17.1",
     "smartcrop": "*",
     "angular-cookies": "^1.5.5",
-    "jquery": "^2.2.4"
+    "jquery": "^2.2.4",
+    "ng-file-upload": "^12.0.4"
   }
 }
