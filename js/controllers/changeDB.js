@@ -1,4 +1,5 @@
 angular.module('correileganteApp').controller('changeDBCtrl', function($scope, $location, ChangeDB, Notification){
+    $scope.url_download = urlpath("downloaddb.json");
     $scope.downloadFile = function(){
 
     };
