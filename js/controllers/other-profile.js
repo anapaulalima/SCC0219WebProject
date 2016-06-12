@@ -26,7 +26,7 @@ angular.module('correileganteApp').controller('otherProfileCtrl', function($scop
         function(data){
             if(data[0].data.status=="success" && data[1].data.status=="success" && data[2].data.status=="success"){
                 $scope.user = data[0].data.user;
-                $scope.user.photo="https://s3.amazonaws.com/contactsstorage/photo/fernando-pessoa.jpg";
+                $scope.user.photo=$scope.user.image_url;
                 //corta a foto de forma inteligente
                 defaultcrop();
                 $scope.posts = data[1].data.result;

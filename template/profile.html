@@ -13,7 +13,7 @@
 				<h5>{{user.name}}</h5>
 			</div>
 			<div class="col-xs-6">
-				<h5>{{user.birthday}}</h5>
+				<h5>{{user.birthday | date:"dd/MM/yyyy"}}</h5>
 			</div>
 		</div>
 
@@ -87,7 +87,7 @@
 								<p ng-bind-html="(post.text || post.retweet.text) | linkfy"></p>
 							</div>
 							<div class="panel-footer">
-								por <a ng-href="profile/{{post.user.username}}">{{post.user.username}}</a> em <a ng-href="details/{{post.id}}">{{post.createdAt}}</a> <span ng-if="post.retweet">from <a ng-href="details/{{post.retweet.id}}">Post</a> </span> 
+								por <a ng-href="profile/{{post.user.username}}">{{post.user.username}}</a> em <a ng-href="details/{{post.id}}">{{post.createdAt | date:"dd/MM/yyyy"}}</a> <span ng-if="post.retweet">from <a ng-href="details/{{post.retweet.id}}">Post</a> </span> 
 							</div>
 						</div> <!--um desse para cada post-->
 					</div>

@@ -7,9 +7,9 @@ angular.module('correileganteApp').controller('signUpCtrl', function($scope, $lo
         if($.trim($scope.formdata.username).length == 0){
             $scope.formerror.username = "You can't use only white spaces.";
         } else {
-           Users.new_user($scope.formdata).success(function(data){
+           Users.new_user($scope.formdata, $scope.f_photo).success(function(data){
                 if(data.status == "error"){
-                    Notification.error("Couldn't creat user");
+                    Notification.error("Couldn't create user");
                 } else {
                     Notification.success("User created");
                     $location.path("/login/");

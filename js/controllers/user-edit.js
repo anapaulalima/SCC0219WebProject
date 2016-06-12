@@ -19,7 +19,7 @@ angular.module('correileganteApp').controller('editUserCtrl', function($scope, $
             $scope.formerror.username = "You can't use only white spaces.";
         } else {
             console.log($scope.formdata);
-            Account.update_user({"formdata":$scope.formdata}).success(function(data){
+            Account.update_user($scope.formdata, $scope.f_photo).success(function(data){
                 if (data.status == "success"){
                     Notification.success("User updated");
                     $location.path("/timeline/");

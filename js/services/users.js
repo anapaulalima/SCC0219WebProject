@@ -1,4 +1,4 @@
-angular.module("correileganteApp").factory('Users', ['$http', function($http){
+angular.module("correileganteApp").factory('Users', ['$http', 'Upload', function($http, Upload){
 	return {
 		get: function(username){
 			return $http.get(urlpath("user/details/"+username));
@@ -27,10 +27,21 @@ angular.module("correileganteApp").factory('Users', ['$http', function($http){
 			}
 			return $http.post(urlpath("user/unfollow"), data);
 		},
-		new_user: function(formdata){
+		new_user: function(formdata, photo){
+			if (typeof photo === 'undefined' || photo == null) throw Error;
+
 			data = {formdata: formdata};
 			data.formdata.birthday = data.formdata.birthday_date.toISOString().slice(0, 10);
-			return $http.post(urlpath("user/new_user"), data);
+
+			console.log(data);
+			console.log(photo);
+
+			return Upload.upload({
+						method: 'POST',
+						url: urlpath('user/new_user'),
+						data: $.extend({image: photo}, data.formdata)
+					});
+			// return $http.post(urlpath("user/new_user"), data);
 		},
 		all: function(){
 			return $http.get(urlpath("user"));

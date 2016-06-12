@@ -11,16 +11,12 @@ angular.module('correileganteApp', [
 	if(!($location.$$path=="/changeDB/") && !($location.$$path=="/changeDB")){
 		Account.me().success(function(data){
 			//console.log($rootScope);
-			// if (data.status == "success"){
-			// 	if (!$rootScope.localUser || $rootScope.localUser.user.id != data.user.id){
-				if(data){
-					setLocalUser(data, $rootScope);
-				}
-			// 	}
-			// } else {
-			// 	Notification.error("Please, authenticate yourself");
-			// 	$location.path("/login/");
-			// }
+			if (data.status == "success"){
+				setLocalUser(data, $rootScope);
+			} else {
+				Notification.error("Please, authenticate yourself");
+				$location.path("/login/");
+			}
 		}).catch(function(data){
 			Notification.error("Please, authenticate yourself");
 			$location.path("/login/");

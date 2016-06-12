@@ -21,10 +21,10 @@
                             <span class="help-block" ng-if="formerror.name">{{formerror.name}}</span>
                         </div>
 
-                     <!--   <div class="form-group">
+                        <div class="form-group">
                             <label for="photo"><h4>Photo</h4></label>
-                            <input id="photo" ng-model="formdata.photo" type="file" accept="image/*" required>
-                        </div> -->
+                            <input id="photo" ngf-select ng-model="f_photo" type="file" ngf-pattern="'image/*'" ngf-accept="'image/*'" ngf-max-size="5MB" required>
+                        </div>
                         
                         <div class="form-group" ng-class="{'has-error': formerror.description}">
                             <label for="description"><h4>Description</h4></label>
@@ -33,7 +33,7 @@
                         </div>
                         <div class="form-group" ng-class="{'has-error': formerror.birthday}">
                             <label for="birthday"><h4>Birthday</h4></label>
-                            <input class="form-control" id="birthday" ng-model="formdata.birthday_date" type="date" required>
+                            <input class="form-control" id="birthday" placeholder="yyyy-mm-dd" ng-model="formdata.birthday_date" type="date" required>
                             <span class="help-block" ng-if="formerror.birthday">{{formerror.birthday}}</span>
                             
                         </div>

@@ -1,4 +1,4 @@
-angular.module('correileganteApp').controller('loginCtrl', function($scope, $rootScope, $location, Notification, Auth, $cookieStore){
+angular.module('correileganteApp').controller('loginCtrl', function($scope, $rootScope, $location, Notification, Auth, Account, $cookieStore){
     $scope.onSubmit = function(){
         var formdata = {
             username : $scope.username,
@@ -7,7 +7,10 @@ angular.module('correileganteApp').controller('loginCtrl', function($scope, $roo
         Auth.login(formdata).success(function(data){
             if (data.user){
                 Notification.success("Login successfully!");
-                $rootScope.localUser = data;
+                Account.me().success(function (data) {
+                    setLocalUser(data, $rootScope);
+                });
+                
                 $location.path("/timeline/");
             } else {
                 Notification.error("Username or password doesn't match");
