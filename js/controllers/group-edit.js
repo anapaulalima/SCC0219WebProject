@@ -20,7 +20,10 @@ angular.module('correileganteApp').controller('editGroupCtrl', function($scope, 
         console.log("qualquer string");
         var sendData = {};
         sendData.name = $scope.formdata.name;
-        sendData.members = [for (u of $scope.formdata.users) u.id];
+        sendData.members = [];
+        for (var i = 0; i < $scope.formdata.users.length; i++){
+            sendData.members.push($scope.formdata.users[i].id);
+        }
         sendData.id = $scope.formdata.id;
         console.log(sendData);
         Group.set_group(sendData).success(function(data){

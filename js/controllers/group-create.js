@@ -14,7 +14,10 @@ angular.module('correileganteApp').controller('newGroupCtrl', function($scope, $
     $scope.submitForm = function(){
     	var sendData = {};
     	sendData.name = $scope.formdata.name;
-    	sendData.id_users = [for (u of $scope.formdata.users) u.id];
+        sendData.id_users = [];
+        for (var i = 0; i < $scope.formdata.users.length; i++){
+            sendData.id_users.push($scope.formdata.users[i].id);
+        }
         Group.set_group(sendData).success(function(data){
         	if(data.status=="success"){
         		Notification.success("Group created");
