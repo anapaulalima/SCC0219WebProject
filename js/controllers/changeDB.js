@@ -6,10 +6,13 @@ angular.module('correileganteApp').controller('changeDBCtrl', function($scope, $
     $scope.uploadFile = function(){
     	console.log({"scope": $scope.f_upload})
     	ChangeDB.uploadDB($scope.f_upload).success(function(data){
-    		console.log(data);
-    		console.log("success");
+            if(data.status == "success"){
+                Notification.success("Database successfully uploaded!!! =) Thanks GOD");
+            } else {
+                Notification.error("Error while uploading, please contact the administrators. =(");     
+            }
     	}).catch(function(data){
-    		console.log(data);
+    		Notification.error("Error while uploading, please contact the administrators. =(");
     	});
     };
 });
