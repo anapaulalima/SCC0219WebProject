@@ -4,14 +4,18 @@ angular.module('correileganteApp').controller('changeDBCtrl', function($scope, $
 
     };
     $scope.uploadFile = function(){
-    	ChangeDB.uploadDB($scope.f_upload).success(function(data){
-            if(data.status == "success"){
-                Notification.success("Database successfully uploaded!!! =) Thanks GOD");
-            } else {
-                Notification.error("Error while uploading, please contact the administrators. =(");     
-            }
-    	}).catch(function(data){
-    		Notification.error("Error while uploading, please contact the administrators. =(");
-    	});
+        if ($scope.uploadDB == undefined){
+            Notification.error("Choose a file");
+        } else {
+        	ChangeDB.uploadDB($scope.f_upload).success(function(data){
+                if(data.status == "success"){
+                    Notification.success("Database successfully uploaded!!! =) Thanks GOD");
+                } else {
+                    Notification.error("Error while uploading, please contact the administrators. =(");     
+                }
+        	}).catch(function(data){
+        		Notification.error("Error while uploading, please contact the administrators. =(");
+        	});
+        }
     };
 });
