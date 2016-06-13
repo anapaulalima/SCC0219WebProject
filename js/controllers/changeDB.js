@@ -4,7 +4,8 @@ angular.module('correileganteApp').controller('changeDBCtrl', function($scope, $
 
     };
     $scope.uploadFile = function(){
-        if ($scope.uploadDB == undefined){
+        console.log($scope.f_upload);
+        if ($scope.f_upload == undefined){
             Notification.error("Choose a file");
         } else {
         	ChangeDB.uploadDB($scope.f_upload).success(function(data){
