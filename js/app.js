@@ -20,6 +20,6 @@ angular.module('correileganteApp', [
 		}).catch(function(data){
 			Notification.error("Please, authenticate yourself");
 			$location.path("/login/");
-		});
+		}); 
 	}
 }]);
