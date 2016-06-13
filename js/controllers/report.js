@@ -34,7 +34,7 @@ angular.module('correileganteApp').controller('reportCtrl', function($scope, Use
         		if($scope.formdata.username == ""){
         			Notification.error("Username empty");
         		} else {
-                    $location.path("/userSimilarity10/"+$scope.formdata.username.username);
+                    $location.path("/userSimilarity10/"+$scope.formdata.username.id);
         		}
         	} else {
                 Notification.error("Select a report type");

@@ -26,14 +26,14 @@ String.prototype.parseUsername = function() {
 String.prototype.parseGroupName = function() {
     return this.replace(/[%]+[A-Za-z0-9-_]+/g, function(u) {
         var groupname = u.replace("%","");
-        return '<a href="/opengroup/'+groupname+'" ng-href="/opengroup/'+groupname+'">'+u+'</a>';
+        return '<a href="/openGroup/'+groupname+'" ng-href="/openGroup/'+groupname+'">'+u+'</a>';
         });
 };
 
 String.prototype.parseHashtag = function() {
     return this.replace(/[#]+[A-Za-z0-9-_]+/g, function(t) {
-        var tag = t.replace("#","%23");
-        return '<a href="/search/'+tag+'" ng-href="/profile/'+tag+'">'+tag+'</a>'; 
+        var tag = t.replace("#","");
+        return '<a href="/search/'+tag+'" ng-href="/search/'+tag+'">'+t+'</a>'; 
     });
 };
 

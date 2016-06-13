@@ -7,7 +7,7 @@ angular.module("correileganteApp").factory('Report', ['$http', function($http){
 			return $http.post(urlpath("tweet/tweet_top20/"), data);
 		},
 		user_similarity10: function(username){
-			return $http.get(urlpath("user/user_similar10/"+username));
+			return $http.post(urlpath("user/user_similarity10/"),username);
 		}
 	};
 }]);
