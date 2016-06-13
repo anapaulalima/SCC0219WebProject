@@ -33,10 +33,6 @@ function defaultcrop() {
                 options = {"width": dest_w, "height": dest_h, "minScale": 0.8};
             }
 
-            console.log(img);
-            console.log(options);
-            console.log($(destiny));
-
             SmartCrop.crop(img, options, function(result){
                 var crop = result.topCrop;
                 var canvas = $(destiny)[0];

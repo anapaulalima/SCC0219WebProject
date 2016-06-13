@@ -4,7 +4,6 @@ angular.module('correileganteApp').controller('changeDBCtrl', function($scope, $
 
     };
     $scope.uploadFile = function(){
-    	console.log({"scope": $scope.f_upload})
     	ChangeDB.uploadDB($scope.f_upload).success(function(data){
             if(data.status == "success"){
                 Notification.success("Database successfully uploaded!!! =) Thanks GOD");

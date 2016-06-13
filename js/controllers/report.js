@@ -6,7 +6,6 @@ angular.module('correileganteApp').controller('reportCtrl', function($scope, Use
 
     Users.all().success(function(data){
         $scope.allUsers = data;
-        console.log(data);
     }).catch(function(data){
         Notification.error("Unable to load users");
     });
@@ -35,8 +34,7 @@ angular.module('correileganteApp').controller('reportCtrl', function($scope, Use
         		if($scope.formdata.username == ""){
         			Notification.error("Username empty");
         		} else {
-                    //console.log($scope.formdata);
-        			$location.path("/userSimilarity10/"+$scope.formdata.username.username);
+                    $location.path("/userSimilarity10/"+$scope.formdata.username.username);
         		}
         	} else {
                 Notification.error("Select a report type");

@@ -23,11 +23,9 @@ angular.module('correileganteApp').controller('newGroupCtrl', function($scope, $
         		Notification.success("Group created");
         		$location.path("/timeline/");
         	} else {
-        		console.log(data);
         		Notification.error("Unable to create group");
         	}
         }).catch(function(data){
-        	console.log(data);
         	Notification.error("Unable to create group");
         	$location.path("/timeline/");
         });

@@ -33,15 +33,11 @@ angular.module("correileganteApp").factory('Users', ['$http', 'Upload', function
 			data = {formdata: formdata};
 			data.formdata.birthday = data.formdata.birthday_date.toISOString().slice(0, 10);
 
-			console.log(data);
-			console.log(photo);
-
 			return Upload.upload({
 						method: 'POST',
 						url: urlpath('user/new_user'),
 						data: $.extend({image: photo}, data.formdata)
 					});
-			// return $http.post(urlpath("user/new_user"), data);
 		},
 		all: function(){
 			return $http.get(urlpath("user"));

@@ -1,7 +1,6 @@
 angular.module("correileganteApp").factory('Group', ['$http', function($http){
 	return {
 		set_group: function(data){
-			//console.log(data);
 			return $http.post(urlpath("group/set_group"), data);
 		},
 		my_groups: function(){

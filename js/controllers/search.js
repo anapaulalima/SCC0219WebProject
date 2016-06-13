@@ -24,7 +24,6 @@ angular.module('correileganteApp').controller('searchCtrl', function($scope, $ro
 
     Post.search($routeParams.text).success(function(data){
     	if(data.status=="success"){
-    		console.log(data);
     		$scope.posts = data.result;
     	} else {
     		Notification("Unable to search Posts");

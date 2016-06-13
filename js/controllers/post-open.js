@@ -3,7 +3,6 @@ angular.module('correileganteApp').controller('detailsPostCtrl', function($scope
     $scope.post.text = "";
     $scope.post.like = false;
     $scope.post.dislike = false;
-    //console.log($routeParams.id);
     $q.all([Post.get($routeParams.id), Reaction.my_reaction($routeParams.id)]).then(function(data){
             if(data[1].data.status=="success"){
                 $scope.post = data[0].data;
@@ -64,7 +63,6 @@ angular.module('correileganteApp').controller('detailsPostCtrl', function($scope
         sendData.formdata = {};
         sendData.formdata.tweet = $scope.post.id;
         sendData.formdata.rate = 1;
-        console.log(sendData);
         Reaction.set_reaction(sendData).success(function(data){
             if(data.status=="success"){
                 if(!$scope.post.like){
@@ -87,7 +85,6 @@ angular.module('correileganteApp').controller('detailsPostCtrl', function($scope
         sendData.formdata = {};
         sendData.formdata.tweet = $scope.post.id;
         sendData.formdata.rate = 0;
-        console.log(sendData);
         Reaction.set_reaction(sendData).success(function(data){
             if(data.status=="success"){
                 if(!$scope.post.dislike){

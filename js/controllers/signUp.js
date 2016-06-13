@@ -3,7 +3,6 @@ angular.module('correileganteApp').controller('signUpCtrl', function($scope, $lo
     $scope.formdata = {};
     $scope.signUp = function(){
         $scope.formerror = {};
-        //console.log($scope.formdata);
         if($.trim($scope.formdata.username).length == 0){
             $scope.formerror.username = "You can't use only white spaces.";
         } else {
@@ -16,10 +15,5 @@ angular.module('correileganteApp').controller('signUpCtrl', function($scope, $lo
                 }
             });
         }
-
-        //manda dados pro backend
-        //retorna os erros que derem
-        /* se der certo, $location.path("/login/");
-        Notification.success("User registered!");*/
     }
 });

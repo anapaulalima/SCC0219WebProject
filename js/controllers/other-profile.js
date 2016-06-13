@@ -8,7 +8,7 @@ angular.module('correileganteApp').controller('otherProfileCtrl', function($scop
                                                                             $location){
     $scope.myself = false;
     $scope.following = false;
-
+ 
     $scope.posts = []; 
     Account.me().success(function(data){
         if(data.status=='success'){
@@ -44,7 +44,6 @@ angular.module('correileganteApp').controller('otherProfileCtrl', function($scop
     );
 
     $scope.follow = function(){
-        //console.log("seguir");
         if (!$scope.following){
             Users.follow($routeParams.username).success(function(data){
                 if(data.status=="success"){

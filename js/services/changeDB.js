@@ -1,7 +1,6 @@
 angular.module("correileganteApp").factory('ChangeDB', ['$http', 'Upload', function($http, Upload){
 	return {
 		uploadDB: function(files){
-			console.log({'files': files});
 			if (typeof files === 'undefined' || files == null)
 				throw Error;
 

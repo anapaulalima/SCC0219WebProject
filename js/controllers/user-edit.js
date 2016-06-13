@@ -14,11 +14,9 @@ angular.module('correileganteApp').controller('editUserCtrl', function($scope, $
 
     $scope.editUser = function(){
         $scope.formerror = {};
-        //backend faz as verificações de todos os campos
         if($.trim($scope.formdata.username).length == 0){
             $scope.formerror.username = "You can't use only white spaces.";
         } else {
-            console.log($scope.formdata);
             Account.update_user($scope.formdata, $scope.f_photo).success(function(data){
                 if (data.status == "success"){
                     Notification.success("User updated");

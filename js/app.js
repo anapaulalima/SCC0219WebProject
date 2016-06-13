@@ -10,7 +10,6 @@ angular.module('correileganteApp', [
 }]).run(['$rootScope', 'Account', '$location', 'Notification', function($rootScope, Account, $location, Notification){
 	if(!($location.$$path=="/changeDB/") && !($location.$$path=="/changeDB")){
 		Account.me().success(function(data){
-			//console.log($rootScope);
 			if (data.status == "success"){
 				setLocalUser(data, $rootScope);
 			} else {

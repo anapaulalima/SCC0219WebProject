@@ -20,7 +20,6 @@ String.prototype.parseUsername = function() {
     return this.replace(/[@]+[A-Za-z0-9-_]+/g, function(u) {
         var username = u.replace("@","");
         return '<a href="/profile/'+username+'" ng-href="/profile/'+username+'">'+u+'</a>';
-        // return u.link("/profile/"+username); //backend
     });
 };
 
@@ -28,20 +27,18 @@ String.prototype.parseGroupName = function() {
     return this.replace(/[%]+[A-Za-z0-9-_]+/g, function(u) {
         var groupname = u.replace("%","");
         return '<a href="/opengroup/'+groupname+'" ng-href="/opengroup/'+groupname+'">'+u+'</a>';
-        // return u.link("/profile/"+username); //backend
-    });
+        });
 };
 
 String.prototype.parseHashtag = function() {
     return this.replace(/[#]+[A-Za-z0-9-_]+/g, function(t) {
         var tag = t.replace("#","%23");
-        return t.link("https://twitter.com/search?q="+tag+"&src=hash"); //backend
+        return '<a href="/search/'+tag+'" ng-href="/profile/'+tag+'">'+tag+'</a>'; 
     });
 };
 
 angular.module('correilegante-parser', []).filter('linkfy', ["$sce", function($sce) {
     return function(input) {
-        //console.log(input);
         if (input) {
           return $sce.trustAsHtml(input.parseURL().parseUsername().parseGroupName().parseHashtag().parseIMG().parseVDO());
         } 

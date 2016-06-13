@@ -15,7 +15,6 @@ angular.module('correileganteApp').controller('editGroupCtrl', function($scope, 
     });
     
     $scope.submitForm = function(){
-        console.log("qualquer string");
         var sendData = {};
         sendData.name = $scope.formdata.name;
         sendData.members = [];
@@ -23,17 +22,14 @@ angular.module('correileganteApp').controller('editGroupCtrl', function($scope, 
             sendData.members.push($scope.formdata.users[i].id);
         }
         sendData.id = $scope.formdata.id;
-        console.log(sendData);
         Group.set_group(sendData).success(function(data){
             if(data.status=="success"){
                 Notification.success("Group edited");
                 $location.path("/timeline/");
             } else {
-                console.log(data);
                 Notification.error("Unable to edit group");
             }
         }).catch(function(data){
-            console.log(data);
             Notification.error("Unable to edit group");
             $location.path("/timeline/");
         });

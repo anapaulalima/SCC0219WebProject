@@ -3,7 +3,6 @@ angular.module('correileganteApp').controller('editPostCtrl', function($scope, $
     $scope.post = {};
     $scope.post.text = "";
     Post.get($routeParams.id).success(function(data){
-        console.log(data);
         $scope.post = data;
     }).catch(function(data){
         Notification.error("Unable to load post");
@@ -11,10 +10,8 @@ angular.module('correileganteApp').controller('editPostCtrl', function($scope, $
     });
     //Backend guarda os dados atualizados por service
     $scope.editPost = function(){
-		//console.log($scope);
         $scope.post.user = $rootScope.localUser.user.id;
         Post.edit({"formdata": $scope.post}).success(function(data){
-            //console.log(data);
             if(data.status=="error") {
                 Notification.error("Unable to edit post");
             } else {
@@ -22,7 +19,6 @@ angular.module('correileganteApp').controller('editPostCtrl', function($scope, $
                 $location.path("/timeline/");
             }
         }).catch(function(data){
-            //console.log(data);
             Notification.error("Unable to edit post");
         });
 	}

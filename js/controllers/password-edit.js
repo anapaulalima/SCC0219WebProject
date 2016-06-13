@@ -2,12 +2,8 @@ angular.module('correileganteApp').controller('editPasswordCtrl', function($scop
 	$scope.formdata = {}
 	$scope.editPassword = function(){
         $scope.formerror = {};
-        //backend faz as verificações de todos os campos
-        
-        //console.log($scope.formdata);
         Account.update_password({"formdata":$scope.formdata}).success(function(data){
-        	console.log(data);
-            if (data.status == "success"){
+        	if (data.status == "success"){
                 Notification.success("Password changed");
                 $location.path("/timeline/");
             } else {
@@ -18,7 +14,6 @@ angular.module('correileganteApp').controller('editPasswordCtrl', function($scop
             	}
             }
         }).catch(function(data){
-            console.log(data);
             Notification.error("Couldn't edit Password");
         });
     }
