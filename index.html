@@ -20,7 +20,8 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				  </button>
-				  <a class="navbar-brand" href="/timeline/">Correilegante</a>
+				  <a class="navbar-brand" ng-if="localUser.user.id" href="/timeline/">Correilegante</a>
+				  <a class="navbar-brand" ng-if="!localUser.user.id" href="/login/">Correilegante</a>
 				</div>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
