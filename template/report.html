@@ -1,34 +1,36 @@
-<div class= "col-sm-12 col-lg-10">
-    <div class = "row">
-        <div class="col-sm-12 col-lg-12">
-            <div class="row">
-                <div class="col-xs-12">
-                    <h3>Report</h3>
-                    <form>
-                        <div class="form-group">
-                            <label for="sel1">Type:</label>
-                            <select class="form-control" id="select" ng-model="selectReport">
-                                <option ng-value="1">Top 20 users by period</option>
-                                <option ng-value="2">Top 10 posts by period</option>
-                                <option ng-value="3">Similarity by user</option>
-                            </select>
-                        </div>
-                        <div class="form-group" ng-if="selectReport == 1 || selectReport == 2">
-                            <label for="begin"><h4>Begin</h4></label>
-                            <input class="form-control" id="begin" ng-model="formdata.begin" type="date" required>
-                        </div>
-                        <div class="form-group" ng-if="selectReport == 1 || selectReport == 2">
-                            <label for="end"><h4>End</h4></label>
-                            <input class="form-control" id="end" ng-model="formdata.end" type="date" required>
-                        </div>
-                        <div class="form-group" ng-if="selectReport == 3">
-                            <label for="username"><h4>Username</h4></label>
-                            <input class="form-control" id="username" ng-model="formdata.username" placeholder="Username" type="text" required>
-                        </div>
-                        <button ng-click="report()" class="btn btn-info">Report</button>
-                    </form>
-                </div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <h3>Report</h3>
+        <form>
+            <div class="form-group">
+                <label for="sel1">Type:</label>
+                <select class="form-control" id="select" ng-model="selectReport">
+                    <option ng-value="1">Top 20 users by period</option>
+                    <option ng-value="2">Top 20 posts by period</option>
+                    <option ng-value="3">Similarity by user</option>
+                </select>
             </div>
-        </div>
+            <div class="form-group" ng-if="selectReport == 1 || selectReport == 2">
+                <label for="begin"><h4>Begin</h4></label>
+                <input class="form-control" id="begin" ng-model="formdata.begin" type="date" required>
+            </div>
+            <div class="form-group" ng-if="selectReport == 1 || selectReport == 2">
+                <label for="end"><h4>End</h4></label>
+                <input class="form-control" id="end" ng-model="formdata.end" type="date" required>
+            </div>
+            <div class="form-group" ng-if="selectReport == 3" ng-class="{'has-error': formerror.users}">
+                <label for="user"><h4>Username</h4></label>
+                <ui-select ng-model="formdata.username" theme="bootstrap" sortable="true" close-on-select="true" >
+                    <ui-select-match placeholder="Select user...">@{{formdata.username.username}}</ui-select-match>
+                    <ui-select-choices repeat="user in allUsers | propsFilter: {name: $select.search, username: $select.search}">
+                        <div ng-bind-html="$item.name | highlight: $select.search"></div>
+                        <small>{{user.name}}  @{{user.username}}</small>
+                    </ui-select-choices>
+                </ui-select>
+                <span class="help-block" ng-if="formerror.user">{{formerror.user}}</span>
+            </div>
+            <button ng-click="report()" class="btn btn-info">Report</button>
+        </form>
     </div>
 </div>

@@ -1,15 +1,24 @@
-angular.module('correileganteApp').controller('postTop20Ctrl', function($scope, Notification, Report, $location, $routeParams){
-	$scope.pageTitle = "Top 20 Posts";
+angular.module('correileganteApp').controller('postTop20Ctrl', function($scope, $routeParams, Notification, Report, $location, $routeParams){
+	$scope.PageTitle = "Top 20 Posts";
 	$scope.posts = {};
-	Report.post_top20($routeParams.date).success(function(data){
+    begin = $routeParams.date.split("--")[0];
+    end = $routeParams.date.split("--")[1];
+    sendData = {};
+    sendData.formdata = {};
+    sendData.formdata.date_ini = begin;
+    sendData.formdata.date_end = end;
+    Report.post_top20(sendData).success(function(data){
         if(data.status == "success"){
-            $scope.posts = data.result;
+            console.log(data);
+            $scope.posts = data.response;
         } else {
-            Notification.error("Unable to generate report");
+            console.log(data);
+            Notification.error("Unable to generate report 1");
             $location.path("/timeline");
         }
     }).catch(function(data){
-        Notification.error("Unable to generate report");
-            $location.path("/timeline");
+        console.log(data);
+        Notification.error("Unable to generate report 2");
+        $location.path("/timeline");
     });
 });

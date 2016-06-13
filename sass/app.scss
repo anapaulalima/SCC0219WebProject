@@ -926,3 +926,9 @@ main {
 .tocrop {
 	display: none;
 }
+
+@media (max-width: 768) {
+  .container {
+   width: 90%;
+  }
+}

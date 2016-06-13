@@ -4,13 +4,11 @@ angular.module('correileganteApp').controller('editGroupCtrl', function($scope, 
     $scope.allUsers = [];
     $scope.formdata = {};
     $scope.formdata.id = $routeParams.id;
-    console.log("qualquer string1");
 
     $q.all([Users.all(), Group.details($routeParams.id)]).then(function(data){
         $scope.allUsers = data[0].data;
         $scope.formdata = data[1].data;
         $scope.formdata.users = data[1].data.members;
-        console.log("qualquer string2");
     }, function(data){
         Notification.error("Unable to open group to edit");
         $location.path("/groups/");
